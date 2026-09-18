@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { HeroSection } from '../components/hero/HeroSection';
-import { CraftsmanshipIntro } from '../components/home/CraftsmanshipIntro';
-import { SunIcon } from '../components/common/SunIcon';
 
 export const HomePage: React.FC = () => {
   const [cartCount, setCartCount] = useState(0);
@@ -39,14 +37,11 @@ export const HomePage: React.FC = () => {
           onCtaClick={handleCtaClick}
         />
 
-        {/* Philosophy & Craftsmanship Section */}
-        <CraftsmanshipIntro />
       </main>
 
-      {/* Artisan Footer */}
+      {/* Artisan Footer
       <footer className="bg-warm-sand/80 border-t border-warm-border/60 py-12 px-4 sm:px-6 lg:px-10 text-center">
         <div className="max-w-7xl mx-auto flex flex-col items-center">
-          <SunIcon size={28} className="text-earth-dark/50 mb-4" />
           <img
             src="/logo.png"
             alt="Dheera Stitches"
@@ -66,7 +61,7 @@ export const HomePage: React.FC = () => {
             © {new Date().getFullYear()} Dheera Stitches. All rights reserved. Handcrafted with reverence.
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };
