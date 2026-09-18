@@ -12,7 +12,7 @@ export const TornPaperEdge: React.FC<TornPaperEdgeProps> = ({
   position = 'bottom',
   className = '',
   showEmblem = true,
-  color = '#FAF7F2',
+  color = '#FCFAF7',
 }) => {
   const isBottom = position === 'bottom';
 

@@ -8,7 +8,7 @@
   --color-terracotta: #A35339;
   --color-terracotta-dark: #863D27;
   --color-terracotta-light: #BE694D;
-  --color-warm-cream: #FAF7F2;
+  --color-warm-cream: #FCFAF7;
   --color-warm-sand: #F4EFE6;
   --color-warm-parchment: #EDE4D4;
   --color-earth-dark: #2B2522;
@@ -39,3 +39,22 @@
   background-image: radial-gradient(rgba(43, 37, 34, 0.03) 1px, transparent 0);
   background-size: 16px 16px;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

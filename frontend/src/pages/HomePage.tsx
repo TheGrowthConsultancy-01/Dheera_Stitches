@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { HeroSection } from '../components/hero/HeroSection';
+import ArtisanStories from '../components/ArtisanStories';
 
 export const HomePage: React.FC = () => {
   const [cartCount, setCartCount] = useState(0);
@@ -37,6 +38,8 @@ export const HomePage: React.FC = () => {
           onCtaClick={handleCtaClick}
         />
 
+        {/* Artisan Stories Section */}
+        <ArtisanStories />
       </main>
 
       {/* Artisan Footer

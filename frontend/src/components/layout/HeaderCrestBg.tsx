@@ -7,7 +7,7 @@ interface HeaderCrestBgProps {
 
 export const HeaderCrestBg: React.FC<HeaderCrestBgProps> = ({
   className = '',
-  color = '#FAF7F2',
+  color = '#FCFAF7',
 }) => {
   return (
     <div className={`absolute inset-0 pointer-events-none select-none z-0 overflow-visible ${className}`}>
