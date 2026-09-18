@@ -4,7 +4,7 @@ export interface Artisan {
   craft: string
   location: string
   experienceYears: number
-   // e.g. '45,000+ Hand Stitches'
+  craftMetric: string // e.g. '45,000+ Hand Stitches'
   fabricType: string // e.g. 'Pure Mulmul Silk'
   image: string
   quote: string
