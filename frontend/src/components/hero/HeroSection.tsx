@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroContent } from './HeroContent';
+import { TornPaperEdge } from '../common/TornPaperEdge';
 import type { HeroProps } from '../../types/navigation';
 
 export const HeroSection: React.FC<HeroProps> = (props) => {
@@ -25,6 +26,11 @@ export const HeroSection: React.FC<HeroProps> = (props) => {
             <HeroContent {...props} />
           </div>
         </div>
+      </div>
+
+      {/* Dramatic Handcrafted Torn Paper Edge overlapping the bottom of the banner */}
+      <div className="relative z-20 w-full -mt-20 sm:-mt-24 md:-mt-32 lg:-mt-36">
+        <TornPaperEdge position="bottom" color="#FCFAF7" showEmblem={true} />
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Handcrafted Torn Paper Edge Background Dipping in Center */}
-      <HeaderCrestBg color="#FAF7F2" />
+      <HeaderCrestBg color="#FCFAF7" />
 
       {/* Foreground Header Bar Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -118,9 +118,9 @@ export const Header: React.FC<HeaderProps> = ({
               aria-label={`Shopping Bag (${cartCount} items)`}
             >
               <ShoppingBag size={19} strokeWidth={1.6} />
-              <span className="text-xs font-semibold text-earth-dark/80 group-hover:text-terracotta transition-colors">
+              {/* <span className="text-xs font-semibold text-earth-dark/80 group-hover:text-terracotta transition-colors">
                 {cartCount}
-              </span>
+              </span> */}
             </button>
           </div>
         </div>
