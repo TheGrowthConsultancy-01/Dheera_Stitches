@@ -1,66 +1,75 @@
 import { useState } from 'react'
 import type { Artisan } from '../types/artisan'
-import { X, ArrowRight, BookOpen, Quote, MapPin, Sparkles, Play, Pause } from 'lucide-react'
+import { X, ArrowRight, BookOpen, Quote, MapPin, Sparkles, Play, Pause, Heart, Clock } from 'lucide-react'
 
 const ARTISANS_DATA: Artisan[] = [
   {
     id: 'shanti-devi',
     name: 'Shanti Devi',
     craft: 'Lucknowi Chikankari',
+    craftCategory: 'Embroidery',
     location: 'Kakori, Lucknow',
     experienceYears: 35,
-    craftMetric: '42,000+ Hand Stitches',
+    craftMetric: '42,000+ Stitches',
     fabricType: 'Pure Mulmul Muslin',
+    signatureTechnique: 'Bakhiya & Shadow Work',
+    hoursPerPiece: '48 Hours',
     image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=900&auto=format&fit=crop',
     quote: 'Every delicate shadow-stitch carries the quiet patience of generations, turning sheer muslin into heirloom poetry.',
     fullStory:
-      'Shanti Devi has practiced the heirloom art of Chikankari embroidery since childhood, mastering 32 distinct stitch techniques like Bakhiya, Phanda, and Tepchi. Over the last 35 years, she has trained more than 200 rural women, empowering them with financial independence while preserving a craft that once adorned royal Awadhi courts. Each Dheera kurti she touches carries over 40 hours of meditative needlework.',
+      'Shanti Devi has practiced the heirloom art of Chikankari embroidery since she was twelve, mastering 32 distinct stitch techniques including Bakhiya, Phanda, and Tepchi. Over 35 years, she has mentored more than 200 rural women across Kakori, enabling financial independence while preserving an art form that once graced the royal courts of Awadh. Each Dheera creation she touches carries over 45 hours of meditative, unhurried needlework.',
     themeColor: {
-      bg: '#EAE0D3',
-      accent: '#8C5D3A',
-      lightBg: '#F5EFE7',
-      border: '#D0C1B0',
-      foldShadow: '#8C5D3A',
+      bg: '#F5EFE6', // Warm Sand from site theme
+      accent: '#A35339', // Terracotta from site theme
+      lightBg: '#EDE4D4',
+      border: '#D8CBBF',
+      badgeBg: '#E8DC CE',
     },
   },
   {
     id: 'mohammad-rafiq',
     name: 'Mohammad Rafiq',
     craft: 'Chanderi Zari Handloom',
+    craftCategory: 'Handloom',
     location: 'Pranpur, Chanderi',
     experienceYears: 28,
-    craftMetric: '16 Days on Pit Loom',
+    craftMetric: '16 Days on Loom',
     fabricType: 'Silk & Silver Zari',
+    signatureTechnique: 'Traditional Pit Loom',
+    hoursPerPiece: '65 Hours',
     image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=900&auto=format&fit=crop',
-    quote: 'The rhythmic clack of our handloom is the village heartbeat, marrying raw silk with silver threads into timeless grace.',
+    quote: 'The rhythmic clack of the pit-loom is our village heartbeat, marrying raw silk with silver threads into gossamer drape.',
     fullStory:
-      'A 3rd-generation weaver from Pranpur, Mohammad Rafiq weaves fine mulmul, silk, and pure silver-gilt zari motifs on traditional pit looms. Each fabric takes up to two weeks of rhythmic foot and shuttle synchronization, creating the legendary feather-light drape of Chanderi that has dressed royalty for centuries.',
+      'A 3rd-generation weaver from the historic lanes of Pranpur near Chanderi, Mohammad Rafiq synchronizes foot treadles and flying shuttles on heritage pit looms. His craft yields the world-renowned feather-light translucency of Chanderi, with intricate motifs woven in pure silver-gilt zari that will endure across family heirlooms for decades.',
     themeColor: {
-      bg: '#E6D7C7',
-      accent: '#8C5D3A',
-      lightBg: '#F3ECE4',
-      border: '#CBBBAA',
-      foldShadow: '#8C5D3A',
+      bg: '#F2ECE2',
+      accent: '#A35339',
+      lightBg: '#EAE1D2',
+      border: '#D6C8B9',
+      badgeBg: '#E5D8C8',
     },
   },
   {
     id: 'ananya-vankar',
-    name: 'Ananya Vankar',
+    name: 'Ananya & Devji Vankar',
     craft: 'Kutch Ajrakh Block Print',
+    craftCategory: 'Block Print',
     location: 'Ajrakhpur, Kutch',
     experienceYears: 24,
-    craftMetric: '16-Stage Mineral Dye',
+    craftMetric: '16-Stage Dyeing',
     fabricType: 'Handspun Desert Cotton',
+    signatureTechnique: 'Teak Block & Mineral Resist',
+    hoursPerPiece: '38 Hours',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=900&auto=format&fit=crop',
-    quote: 'Carved teakwood blocks and natural indigo—every cosmic geometric motif is hand-printed in sacred rhythm with the sun.',
+    quote: 'Hand-carved teakwood blocks and natural indigo—every cosmic geometric motif is printed in rhythm with the sun and river.',
     fullStory:
-      'Carrying forward the sacred 16-stage resist-dyeing process of Ajrakh in Kutch, Ananya and her family craft breathtaking cosmic geometric patterns using carved teak blocks, indigo, madder root, and natural mineral dyes. Their craft is completely chemical-free, honoring the soil and river.',
+      'Rooted in the arid sands of Kutch, Ananya and Devji carry forward the sacred 16-stage resist-dyeing process known as Ajrakh. Using hand-carved teakwood blocks, madder root, indigo, pomegranate rind, and river mud, their work is completely free of synthetic chemicals, creating fabrics that breathe with the earth.',
     themeColor: {
-      bg: '#E9DDD0',
-      accent: '#8C5D3A',
-      lightBg: '#F5EFE8',
-      border: '#D2C4B4',
-      foldShadow: '#8C5D3A',
+      bg: '#F4EEE5',
+      accent: '#A35339',
+      lightBg: '#EBE2D4',
+      border: '#D7CABE',
+      badgeBg: '#E6D9CA',
     },
   },
 ]
@@ -71,115 +80,126 @@ export default function ArtisanStories() {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false)
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F7F2EB] min-h-[820px] flex flex-col justify-center items-center font-['Plus_Jakarta_Sans',sans-serif] relative overflow-hidden select-none">
-      {/* Subtle Background Architectural Texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.025] bg-[radial-gradient(#2B231D_1px,transparent_1px)] [background-size:28px_28px]"></div>
+    <section className="py-24 px-4 sm:px-6 lg:px-10 bg-warm-cream relative overflow-hidden font-sans select-none border-t border-warm-parchment/60">
+      {/* Background Subtle Textile Weave Grid Texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#2B2522_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
-      {/* Editorial Section Header */}
-      <div className="text-center max-w-2xl mx-auto mb-16 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#D5C6B5] bg-[#EFE5D8]/80 backdrop-blur-sm text-[#7D5333] text-[10.5px] uppercase tracking-[0.28em] font-semibold mb-3 shadow-xs">
-          <Sparkles className="w-3.5 h-3.5 text-[#A06C44]" />
-          Dheera Master Artisans
+      {/* 1. EDITORIAL SECTION HEADER */}
+      <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-warm-parchment bg-warm-sand/80 backdrop-blur-sm text-terracotta text-xs font-semibold tracking-[0.2em] uppercase mb-3 shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-terracotta" />
+          The Living Hands of Dheera
         </div>
-        <h2 className="text-3xl sm:text-5xl font-['Cormorant_Garamond',serif] font-normal text-[#2B231D] tracking-tight mb-3">
-          The Living Hands Behind The Loom
+
+        <h2 className="text-3xl sm:text-5xl font-serif font-normal text-earth-dark tracking-tight mb-3">
+          Behind Every Stitch, A Human Soul
         </h2>
-        <p className="text-[#6D5E53] text-xs sm:text-sm font-light max-w-md mx-auto leading-relaxed">
-          Every silhouette is handcrafted with patience and soul. Hover over an artisan to explore their craft and journey.
+
+        <p className="font-script text-xl sm:text-2xl text-terracotta mb-2">
+          Where ancient patience meets contemporary grace
+        </p>
+
+        <p className="text-earth-muted text-xs sm:text-sm font-light max-w-lg mx-auto leading-relaxed">
+          Before each garment graces your wardrobe, it spends weeks in the devoted hands of master weavers, embroiderers, and printers across India.
         </p>
       </div>
 
-      {/* 3 IN A SINGLE LINE (Strictly md:grid-cols-3) */}
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch relative z-10">
+      {/* 2. THREE ARTISAN PORTALS (STRICTLY 3-IN-A-ROW ON DESKTOP) */}
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-7 lg:gap-9 items-stretch relative z-10">
         {ARTISANS_DATA.map((artisan) => {
           const isHovered = hoveredId === artisan.id
 
           return (
             <div
               key={artisan.id}
-              className={`group relative flex flex-col rounded-t-[170px] cursor-pointer transition-all duration-700 ease-out ${
+              className={`group relative flex flex-col rounded-t-[160px] cursor-pointer transition-all duration-700 ease-out ${
                 isHovered
-                  ? '-translate-y-3.5 shadow-2xl shadow-[#8C5D3A]/20'
+                  ? '-translate-y-3 shadow-2xl shadow-terracotta/20'
                   : hoveredId
-                  ? 'opacity-85 scale-[0.98] shadow-sm'
-                  : 'shadow-md shadow-stone-200/60'
+                  ? 'opacity-85 scale-[0.985] shadow-xs'
+                  : 'shadow-md shadow-stone-300/40 hover:-translate-y-1'
               }`}
               onMouseEnter={() => setHoveredId(artisan.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={() => setSelectedArtisan(artisan)}
             >
-              {/* Outer Architectural Framing Card */}
+              {/* Outer Architectural Portal Frame */}
               <div
-                className={`w-full flex-1 flex flex-col rounded-t-[170px] overflow-hidden border transition-all duration-500 ${
-                  isHovered ? 'border-[#8C5D3A] ring-1 ring-[#8C5D3A]/40 bg-[#FAF5EE]' : 'border-[#D0C0B0] bg-[#FAF5EE]'
+                className={`w-full flex-1 flex flex-col rounded-t-[160px] overflow-hidden border transition-all duration-500 ${
+                  isHovered ? 'border-terracotta ring-1 ring-terracotta/30 bg-warm-sand' : 'border-warm-parchment bg-warm-sand/80'
                 }`}
               >
-                {/* 1. TOP: Architectural Roman Arch Photo Frame */}
-                <div className="relative w-full h-[320px] sm:h-[350px] rounded-t-[168px] overflow-hidden bg-[#E9DFC4]">
-                  {/* Image with Smooth Zoom */}
+                {/* A. TOP: Roman Arch Portrait with Inner Framing Matting */}
+                <div className="relative w-full h-[320px] sm:h-[350px] rounded-t-[158px] overflow-hidden bg-warm-parchment/60">
                   <img
                     src={artisan.image}
                     alt={artisan.name}
                     className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
-                      isHovered ? 'scale-108' : 'scale-100'
+                      isHovered ? 'scale-106' : 'scale-100'
                     }`}
                   />
 
-                  {/* Inner Arch Hairline Framing Inset */}
+                  {/* Inner Arch Hairline Framing Stroke */}
                   <div
-                    className={`absolute inset-2.5 rounded-t-[158px] border transition-all duration-700 pointer-events-none ${
-                      isHovered ? 'border-white/80' : 'border-white/40'
+                    className={`absolute inset-2.5 rounded-t-[148px] border transition-all duration-700 pointer-events-none ${
+                      isHovered ? 'border-white/85' : 'border-white/45'
                     }`}
                   ></div>
 
-                  {/* Top-Right Craft Metric Pill (Special Feature) */}
+                  {/* Top Location & Experience Badge */}
+                  <div className="absolute top-4 left-4 z-20">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-earth-dark text-[10px] font-semibold tracking-wider uppercase border border-white/50 shadow-xs">
+                      <MapPin className="w-3 h-3 text-terracotta" />
+                      {artisan.location}
+                    </span>
+                  </div>
+
+                  {/* Top-Right Craft Metric Pill */}
                   <div className="absolute top-4 right-4 z-20">
-                    <span
-                      className={`text-[9.5px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full shadow-sm transition-all duration-500 backdrop-blur-md flex items-center gap-1 ${
-                        isHovered
-                          ? 'bg-[#2B231D] text-white'
-                          : 'bg-white/85 text-[#2B231D] border border-white/40'
-                      }`}
-                    >
-                      <Sparkles className="w-2.5 h-2.5 text-[#E6C687]" />
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-earth-dark/85 backdrop-blur-md text-white text-[9.5px] font-medium tracking-wider uppercase shadow-xs">
+                      <Sparkles className="w-2.5 h-2.5 text-amber-300" />
                       {artisan.craftMetric}
                     </span>
                   </div>
 
-                  {/* Bottom Fabric Swatch Pill on Photo */}
-                  <div className="absolute bottom-3 left-4 z-20">
-                    <span className="text-[10px] uppercase tracking-widest font-medium text-white/95 drop-shadow-md flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E6C687] animate-pulse"></span>
+                  {/* Lower Photo Fabric & Hours Pill */}
+                  <div className="absolute bottom-3 inset-x-4 flex justify-between items-center z-20">
+                    <span className="text-[10px] uppercase tracking-wider font-medium text-white/95 drop-shadow-md flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse"></span>
                       {artisan.fabricType}
+                    </span>
+                    <span className="text-[9.5px] uppercase tracking-wider text-white/80 font-light flex items-center gap-1">
+                      <Clock className="w-3 h-3 text-white/80" />
+                      {artisan.hoursPerPiece}
                     </span>
                   </div>
 
-                  {/* Warm Gradient Scrim on Photo */}
+                  {/* Warm Sunset Scrim on Hover */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t from-[#2B231D]/45 via-transparent to-transparent transition-opacity duration-500 pointer-events-none ${
+                    className={`absolute inset-0 bg-gradient-to-t from-earth-dark/50 via-transparent to-transparent transition-opacity duration-500 pointer-events-none ${
                       isHovered ? 'opacity-100' : 'opacity-20'
                     }`}
                   />
                 </div>
 
-                {/* 2. BOTTOM CONTENT BLOCK: SPECIAL ANIMATION ON HOVER */}
+                {/* B. BOTTOM: Warm Sand Card Body with Smooth Story Drawer */}
                 <div
-                  className="flex-1 p-7 sm:p-8 flex flex-col justify-between items-center text-center relative border-t border-[#D0C0B0] transition-all duration-500 overflow-hidden"
+                  className="flex-1 p-6 sm:p-7 flex flex-col justify-between items-center text-center relative border-t border-warm-parchment transition-all duration-500 overflow-hidden"
                   style={{ backgroundColor: artisan.themeColor.bg }}
                 >
-                  {/* SPECIAL ANIMATION: The Golden Thread Stitch Line (Scales across top on hover) */}
+                  {/* The Golden Thread Animation across top edge on hover */}
                   <div
-                    className={`absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#8C5D3A] to-transparent transition-transform duration-700 ease-out origin-left ${
+                    className={`absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-terracotta to-transparent transition-transform duration-700 ease-out origin-left ${
                       isHovered ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
                     }`}
                   />
 
-                  {/* Header Info */}
+                  {/* Content Container */}
                   <div className="w-full flex flex-col items-center">
-                    {/* Craft Category with Animated Bullet */}
-                    <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.24em] text-[#8C5D3A] font-semibold mb-1.5">
+                    {/* Craft Category & Technique Badge */}
+                    <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.24em] text-terracotta font-semibold mb-1.5">
                       <span
-                        className={`w-1.5 h-1.5 rounded-full bg-[#8C5D3A] transition-transform duration-500 ${
+                        className={`w-1.5 h-1.5 rounded-full bg-terracotta transition-transform duration-500 ${
                           isHovered ? 'scale-125' : 'scale-100'
                         }`}
                       ></span>
@@ -187,17 +207,16 @@ export default function ArtisanStories() {
                     </div>
 
                     {/* Artisan Name in Editorial Serif */}
-                    <h3 className="font-['Cormorant_Garamond',serif] text-2xl sm:text-[29px] font-medium text-[#2B231D] tracking-tight mb-1.5 leading-none transition-transform duration-500 group-hover:scale-[1.02]">
+                    <h3 className="font-serif text-2xl sm:text-[29px] font-medium text-earth-dark tracking-tight mb-1.5 leading-none transition-transform duration-500 group-hover:scale-[1.02]">
                       {artisan.name}
                     </h3>
 
-                    {/* Location Pin */}
-                    <p className="text-xs text-[#6F6054] flex items-center gap-1 font-light mb-3">
-                      <MapPin className="w-3 h-3 text-[#8C5D3A]" />
-                      <span>{artisan.location}</span>
+                    {/* Technique Subtitle */}
+                    <p className="text-xs text-earth-muted font-light mb-3 italic">
+                      Specialist in {artisan.signatureTechnique}
                     </p>
 
-                    {/* SPECIAL DYNAMIC ANIMATION: Story slides in with staggered delay ONLY on hovered card */}
+                    {/* HOVER-ONLY STORY DRAWER (Expands smoothly on hover only) */}
                     <div
                       className={`w-full flex flex-col items-center transition-all duration-500 ease-out overflow-hidden ${
                         isHovered
@@ -205,40 +224,40 @@ export default function ArtisanStories() {
                           : 'opacity-0 max-h-0 -translate-y-3 pointer-events-none'
                       }`}
                     >
-                      {/* Stylized Quote */}
-                      <div className="relative py-1.5 px-3 mb-4 bg-white/40 backdrop-blur-xs rounded-xl border border-white/50 shadow-xs">
-                        <Quote className="w-4 h-4 text-[#8C5D3A]/40 mb-1 mx-auto" />
-                        <p className="text-xs sm:text-[13px] font-light text-[#3F342B] leading-relaxed italic line-clamp-3">
+                      {/* Quote Box with Stylized Quotes */}
+                      <div className="relative py-2 px-3 mb-4 bg-white/50 backdrop-blur-xs rounded-xl border border-white/60 shadow-xs">
+                        <Quote className="w-3.5 h-3.5 text-terracotta/40 mb-1 mx-auto" />
+                        <p className="font-serif italic text-xs sm:text-[13px] text-earth-dark leading-relaxed line-clamp-3">
                           "{artisan.quote}"
                         </p>
                       </div>
 
-                      {/* Animated READ FULL STORY Button with Sliding Arrow */}
+                      {/* Explore Full Story Button */}
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation()
                           setSelectedArtisan(artisan)
                         }}
-                        className="group/btn inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-[#2B231D] hover:text-[#8C5D3A] border-b border-[#2B231D]/40 hover:border-[#8C5D3A] pb-1 transition-all"
+                        className="group/btn inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-earth-dark hover:text-terracotta border-b border-earth-dark/40 hover:border-terracotta pb-1 transition-all"
                       >
-                        <span>Explore Full Journey</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 text-[#8C5D3A]" />
+                        <span>Read Full Story</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 text-terracotta" />
                       </button>
                     </div>
 
-                    {/* When NOT hovered: Minimal Prompt Indicator */}
+                    {/* When NOT hovered: Minimal poetic cue */}
                     <div
-                      className={`transition-all duration-300 flex flex-col items-center gap-1 mt-1 text-[#8C5D3A] text-[10px] tracking-[0.24em] uppercase font-medium ${
-                        isHovered ? 'opacity-0 h-0 overflow-hidden' : 'opacity-75'
+                      className={`transition-all duration-300 flex flex-col items-center gap-1 mt-1 text-terracotta text-[10px] tracking-[0.22em] uppercase font-medium ${
+                        isHovered ? 'opacity-0 h-0 overflow-hidden' : 'opacity-80'
                       }`}
                     >
-                      <div className="flex items-center gap-1">
-                        <span className="w-1 h-1 rounded-full bg-[#8C5D3A]"></span>
-                        <span>Hover to unveil story</span>
-                        <span className="w-1 h-1 rounded-full bg-[#8C5D3A]"></span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-terracotta"></span>
+                        <span>Hover to read story</span>
+                        <span className="w-1 h-1 rounded-full bg-terracotta"></span>
                       </div>
-                      <span className="text-[10px] animate-bounce">↓</span>
+                      <span className="text-[9px] animate-bounce">↓</span>
                     </div>
                   </div>
                 </div>
@@ -248,34 +267,54 @@ export default function ArtisanStories() {
         })}
       </div>
 
-      {/* FULL STORY MODAL POPUP (With Audio Voice Note Simulation & Full Narrative) */}
+      {/* 3. CRAFT REVERENCE FOOTNOTE STRIP */}
+      <div className="mt-16 max-w-4xl mx-auto text-center border-t border-warm-parchment/80 pt-8 relative z-10">
+        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-xs font-medium text-earth-muted">
+          <div className="flex items-center gap-2">
+            <Heart className="w-4 h-4 text-terracotta" />
+            <span>100% Direct Fair Trade Wages</span>
+          </div>
+          <span className="hidden sm:inline text-warm-parchment">•</span>
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-terracotta" />
+            <span>Zero Synthetic Chemicals & AZO-Free Dyes</span>
+          </div>
+          <span className="hidden sm:inline text-warm-parchment">•</span>
+          <div className="flex items-center gap-2">
+            <span className="text-base">🧵</span>
+            <span>Revitalizing 500-Year-Old Handloom Villages</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. FULL STORY MODAL (Opened upon clicking card or "Read Full Story") */}
       {selectedArtisan && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/65 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-earth-dark/70 backdrop-blur-md animate-fade-in"
           onClick={() => {
             setSelectedArtisan(null)
             setIsPlayingAudio(false)
           }}
         >
           <div
-            className="relative w-full max-w-xl bg-[#FAF5EE] rounded-3xl overflow-hidden shadow-2xl border border-[#D5C6B5]"
+            className="relative w-full max-w-xl bg-warm-cream rounded-3xl overflow-hidden shadow-2xl border border-warm-parchment animate-scale-up"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header Banner */}
-            <div className="p-7 sm:p-8 bg-[#E6D7C7] border-b border-[#D0C0B0] relative flex items-center gap-5">
+            {/* Modal Header */}
+            <div className="p-7 sm:p-8 bg-warm-sand border-b border-warm-parchment relative flex items-center gap-5">
               <button
                 type="button"
                 onClick={() => {
                   setSelectedArtisan(null)
                   setIsPlayingAudio(false)
                 }}
-                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-black/10 hover:bg-black/20 text-[#2B231D] flex items-center justify-center transition-colors"
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-earth-dark/10 hover:bg-earth-dark/20 text-earth-dark flex items-center justify-center transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="w-20 h-24 rounded-t-[40px] overflow-hidden border-2 border-white/70 shadow-md shrink-0 bg-[#D9C8B4]">
+              <div className="w-20 h-24 rounded-t-[40px] overflow-hidden border-2 border-white shadow-md shrink-0 bg-warm-parchment">
                 <img
                   src={selectedArtisan.image}
                   alt={selectedArtisan.name}
@@ -284,14 +323,14 @@ export default function ArtisanStories() {
               </div>
 
               <div>
-                <span className="text-[10px] uppercase tracking-[0.24em] text-[#8C5D3A] font-semibold block mb-1">
+                <span className="text-[10px] uppercase tracking-[0.24em] text-terracotta font-semibold block mb-1">
                   {selectedArtisan.craft}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-['Cormorant_Garamond',serif] font-medium text-[#2B231D] leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-serif font-medium text-earth-dark leading-tight">
                   {selectedArtisan.name}
                 </h3>
-                <p className="text-xs text-[#6F6054] flex items-center gap-1.5 mt-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#8C5D3A]" />
+                <p className="text-xs text-earth-muted flex items-center gap-1.5 mt-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-terracotta" />
                   <span>{selectedArtisan.location}</span>
                   <span>•</span>
                   <span>{selectedArtisan.experienceYears}+ Years Craft Mastery</span>
@@ -301,31 +340,33 @@ export default function ArtisanStories() {
 
             {/* Modal Body */}
             <div className="p-7 sm:p-8 space-y-5 max-h-[60vh] overflow-y-auto">
-              {/* SPECIAL FEATURE: Audio Story & Loom Rhythm Simulation */}
-              <div className="p-4 rounded-2xl bg-[#F0E6D8] border border-[#DDCFC0] flex items-center justify-between gap-4">
+              {/* Audio Story & Loom Rhythm Simulation */}
+              <div className="p-4 rounded-2xl bg-warm-parchment/60 border border-warm-parchment flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => setIsPlayingAudio(!isPlayingAudio)}
-                    className="w-10 h-10 rounded-full bg-[#8C5D3A] text-white flex items-center justify-center shadow-md hover:bg-[#72482A] transition-colors shrink-0"
+                    className="w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center shadow-md hover:bg-terracotta-dark transition-colors shrink-0"
                   >
                     {isPlayingAudio ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
                   </button>
                   <div>
-                    <span className="text-xs font-semibold text-[#2B231D] block">
-                      {isPlayingAudio ? 'Listening to Loom Sound & Voice...' : 'Listen to Artisan Voice & Loom'}
+                    <span className="text-xs font-semibold text-earth-dark block">
+                      {isPlayingAudio ? 'Playing Loom Rhythm & Voice...' : 'Listen to Artisan Voice & Loom'}
                     </span>
-                    <span className="text-[10.5px] text-[#7A6B5F]">Recorded in {selectedArtisan.location} • 1:20 min</span>
+                    <span className="text-[10.5px] text-earth-muted">
+                      Recorded in {selectedArtisan.location} • 1:20 min
+                    </span>
                   </div>
                 </div>
 
-                {/* Animated Soundwave Bars */}
+                {/* Animated Soundwave Equalizer */}
                 <div className="flex items-center gap-1 h-5">
-                  {[12, 20, 16, 24, 14, 18, 10].map((h, i) => (
+                  {[10, 18, 14, 22, 12, 16, 8].map((h, i) => (
                     <span
                       key={i}
-                      className={`w-1 rounded-full bg-[#8C5D3A] transition-all duration-300 ${
-                        isPlayingAudio ? 'animate-pulse' : 'opacity-40'
+                      className={`w-1 rounded-full bg-terracotta transition-all duration-300 ${
+                        isPlayingAudio ? 'animate-pulse' : 'opacity-35'
                       }`}
                       style={{ height: isPlayingAudio ? `${h}px` : '6px' }}
                     ></span>
@@ -334,53 +375,53 @@ export default function ArtisanStories() {
               </div>
 
               {/* Quote */}
-              <div className="p-5 rounded-2xl bg-white border border-[#E8DDCE] shadow-xs relative">
-                <Quote className="w-7 h-7 text-[#D0C0B0] absolute top-3.5 left-3.5" />
-                <p className="text-[#3F342B] font-['Cormorant_Garamond',serif] italic text-base sm:text-lg pl-8 leading-relaxed">
+              <div className="p-5 rounded-2xl bg-white border border-warm-parchment shadow-xs relative">
+                <Quote className="w-6 h-6 text-warm-parchment absolute top-3.5 left-3.5" />
+                <p className="text-earth-dark font-serif italic text-base sm:text-lg pl-7 leading-relaxed">
                   "{selectedArtisan.quote}"
                 </p>
               </div>
 
               {/* Full Narrative */}
               <div>
-                <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8C5D3A] mb-2 flex items-center gap-2">
+                <h4 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-terracotta mb-2 flex items-center gap-2">
                   <BookOpen className="w-3.5 h-3.5" />
                   The Artisan Journey
                 </h4>
-                <p className="text-[#5B4E42] text-xs sm:text-sm leading-relaxed font-light">
+                <p className="text-earth-muted text-xs sm:text-sm leading-relaxed font-light">
                   {selectedArtisan.fullStory}
                 </p>
               </div>
 
               {/* Craft Metrics Highlights */}
               <div className="grid grid-cols-3 gap-3 pt-2">
-                <div className="bg-[#EFE5D8] p-3 rounded-xl text-center border border-[#DFCFC0]">
-                  <span className="text-[9.5px] uppercase tracking-wider text-[#7D6E62] block">Metric</span>
-                  <span className="font-semibold text-xs text-[#2B231D]">{selectedArtisan.craftMetric}</span>
+                <div className="bg-warm-sand p-3.5 rounded-xl text-center border border-warm-parchment">
+                  <span className="text-[9.5px] uppercase tracking-wider text-earth-muted block">Metric</span>
+                  <span className="font-semibold text-xs text-earth-dark">{selectedArtisan.craftMetric}</span>
                 </div>
-                <div className="bg-[#EFE5D8] p-3 rounded-xl text-center border border-[#DFCFC0]">
-                  <span className="text-[9.5px] uppercase tracking-wider text-[#7D6E62] block">Fabric</span>
-                  <span className="font-semibold text-xs text-[#2B231D]">{selectedArtisan.fabricType.split(' ')[0]}</span>
+                <div className="bg-warm-sand p-3.5 rounded-xl text-center border border-warm-parchment">
+                  <span className="text-[9.5px] uppercase tracking-wider text-earth-muted block">Technique</span>
+                  <span className="font-semibold text-xs text-earth-dark">{selectedArtisan.signatureTechnique.split(' ')[0]}</span>
                 </div>
-                <div className="bg-[#EFE5D8] p-3 rounded-xl text-center border border-[#DFCFC0]">
-                  <span className="text-[9.5px] uppercase tracking-wider text-[#7D6E62] block">Fair Trade</span>
-                  <span className="font-semibold text-xs text-[#8C5D3A] flex items-center justify-center gap-1">
+                <div className="bg-warm-sand p-3.5 rounded-xl text-center border border-warm-parchment">
+                  <span className="text-[9.5px] uppercase tracking-wider text-earth-muted block">Direct Impact</span>
+                  <span className="font-semibold text-xs text-terracotta flex items-center justify-center gap-1">
                     <Sparkles className="w-3 h-3" />
-                    Direct
+                    Fair Trade
                   </span>
                 </div>
               </div>
             </div>
 
             {/* Modal Footer */}
-            <div className="px-7 py-4 bg-[#EDE2D5] border-t border-[#D5C6B5] flex justify-end">
+            <div className="px-7 py-4 bg-warm-sand border-t border-warm-parchment flex justify-end">
               <button
                 type="button"
                 onClick={() => {
                   setSelectedArtisan(null)
                   setIsPlayingAudio(false)
                 }}
-                className="px-6 py-2 bg-[#2B231D] hover:bg-[#3D3329] text-[#FAF5EE] text-[11px] uppercase tracking-[0.22em] font-medium rounded-full shadow-sm transition-colors"
+                className="px-6 py-2 bg-earth-dark hover:bg-black text-warm-cream text-[11px] uppercase tracking-[0.22em] font-medium rounded-full shadow-sm transition-colors"
               >
                 Close Story
               </button>
