@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { HeroSection } from '../components/hero/HeroSection';
+import { HeritageCitiesSection } from '../components/HeritageCitiesSection';
 import { OccasionsSection } from '../components/OccasionsSection';
 import ArtisanStories from '../components/ArtisanStories';
 
@@ -39,11 +40,14 @@ export const HomePage: React.FC = () => {
           onCtaClick={handleCtaClick}
         />
 
-        {/* Curated Occasions & Popular Picks Section (Polaroid Theme) */}
-        <OccasionsSection />
+        {/* Shop by Heritage City (Craft Origins) */}
+        <HeritageCitiesSection />
 
         {/* Artisan Stories Section */}
         <ArtisanStories />
+
+        {/* Curated Occasions & Popular Picks Section (Polaroid Theme) */}
+        <OccasionsSection />
       </main>
 
       {/* Artisan Footer
