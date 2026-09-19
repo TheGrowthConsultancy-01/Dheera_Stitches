@@ -6,6 +6,7 @@ interface OccasionCard {
   occasionCategory: string
   image: string
   rotationClass: string
+  aspectRatioClass: string
 }
 
 const OCCASIONS_DATA: OccasionCard[] = [
@@ -15,6 +16,7 @@ const OCCASIONS_DATA: OccasionCard[] = [
     occasionCategory: 'Popular Pick',
     image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=900&auto=format&fit=crop',
     rotationClass: '-rotate-1 hover:rotate-0',
+    aspectRatioClass: 'aspect-[3/4.2]', // 1st: Vertical Rectangle (Tall)
   },
   {
     id: 'bestseller-month',
@@ -22,6 +24,7 @@ const OCCASIONS_DATA: OccasionCard[] = [
     occasionCategory: 'Best Selling',
     image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=900&auto=format&fit=crop',
     rotationClass: 'rotate-1 hover:rotate-0',
+    aspectRatioClass: 'aspect-square', // 2nd: Square Type (Shorter)
   },
   {
     id: 'popular-gift-picks',
@@ -29,6 +32,7 @@ const OCCASIONS_DATA: OccasionCard[] = [
     occasionCategory: 'Curated Gifts',
     image: 'https://images.unsplash.com/photo-1607344645866-009c320b5ab8?q=80&w=900&auto=format&fit=crop',
     rotationClass: '-rotate-0.5 hover:rotate-0',
+    aspectRatioClass: 'aspect-[3/4.2]', // 3rd: Vertical Rectangle (Tall)
   },
   {
     id: 'studio-handcrafted',
@@ -36,6 +40,7 @@ const OCCASIONS_DATA: OccasionCard[] = [
     occasionCategory: 'Everyday Luxury',
     image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=900&auto=format&fit=crop',
     rotationClass: 'rotate-1.5 hover:rotate-0',
+    aspectRatioClass: 'aspect-square', // 4th: Square Type (Shorter)
   },
 ]
 
@@ -74,16 +79,16 @@ export const OccasionsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* 4 POLAROID PHOTO CARDS GRID (Vintage white frame with cursive caption) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 lg:gap-8 items-stretch pt-2">
+        {/* 4 POLAROID PHOTO CARDS GRID (Alternating Vertical Rectangle & Square) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 lg:gap-8 items-start pt-2">
           {OCCASIONS_DATA.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
               className={`bg-white p-3.5 pb-7 sm:pb-8 shadow-md shadow-stone-300/35 rounded-[2px] border border-stone-200/60 transition-all duration-500 ease-out hover:shadow-2xl hover:-translate-y-2.5 cursor-pointer group flex flex-col justify-between ${item.rotationClass}`}
             >
-              {/* Photo Area */}
-              <div className="w-full aspect-[4/5] overflow-hidden bg-warm-sand/30">
+              {/* Photo Area with Alternating Aspect Ratio */}
+              <div className={`w-full ${item.aspectRatioClass} overflow-hidden bg-warm-sand/30`}>
                 <img
                   src={item.image}
                   alt={item.title}
@@ -105,6 +110,7 @@ export const OccasionsSection: React.FC = () => {
           ))}
         </div>
       </div>
+
 
       {/* QUICK VIEW POPUP MODAL (Optional preview on card click) */}
       {selectedItem && (
@@ -160,3 +166,4 @@ export const OccasionsSection: React.FC = () => {
 }
 
 export default OccasionsSection
+
